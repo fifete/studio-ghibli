@@ -4,9 +4,43 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   </head>
   <body>
-    <div id="root"></div>
+    <header>
+      <nav class="bg-dark">
+        <div class="logo">
+          <img src="./img/SG_logo.png" alt="logo de studio Ghibli">
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section  class="whitespace">
+        <div class="container">
+          <h2>Our History</h2>
+          <p>Studio Ghibli movies and the adorable characters have captured people's hearts from all over the world. The studio was founded in 1985 in Tokyo by the three men, Isao Takahata, Toshio Suzuki and the well-known film producer Hayao Miyazaki. The name Studio Ghibli was based on the Arabic name for "hot sahara wind" because the founders wanted Studio Ghibli to blow new wind through the anime industry.</p>
+        </div>
+      </section>
+
+      <section class="whitespace">
+        <h2 class="text-center">Our Films</h2>
+        <div class="flex search-container">
+          <div class="flex">
+            <i class="material-icons">search</i>
+            <input type="search" name="search-film" class="input-search" id="search-film" placeholder="Search for movies" autocomplete="off">
+          </div>
+          <i class="material-icons">movie_filter</i>
+        </div>
+
+        <div id="films-cards" class="grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      
+    </footer>
     <script src="main.js" type="module"></script>
   </body>
 </html>
