@@ -1,9 +1,42 @@
 // estas funciones son de ejemplo
-
-export const example = () => {
-  return 'example';
+const jarrays = [{id: "2baf70d1-42bb-4437-b551-e5fed5a87abe",title: "Castle in the Sky", poster:"hola"},{id: "2baf70d1-42bb-4437-b551-e5fed5a87abe", title: "Castle", poster:"hola"}]
+export const showData = (arrays) => {
+ const datos = arrays.map(item =>{
+    return{
+      title: item.title,
+      poster: item.poster
+    }
+  });
+  return datos;
+};
+// export const filterBySearch = (search, dataFilms) => {
+//    //transformar a minúscula tanto la búsqueda del usuario como el título del filme para lograr coincidencia
+//     const transformData = search.toLowerCase();
+//    const filteredData = dataFilms.filter(film => film.title.toLowerCase().includes(transformData));
+//    return filteredData;
+//  }
+export const filterBySearch = (words , query)=>{
+   return words.filter((word) =>
+       word.title.toLowerCase()
+       .includes(query.toLowerCase())
+      );
+ };
+ export const filterBySearchGeneral = (words , query, prop)=>{
+  return words.filter((word) =>
+      word.prop.toLowerCase()
+      .includes(query.toLowerCase())
+     );
 };
 
-export const anotherExample = () => {
-  return 'OMG';
-};
+
+
+
+
+
+
+
+
+
+
+
+

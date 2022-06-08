@@ -1,46 +1,49 @@
-//alert("Módulo RESPONDE");
-/*************** Import Modules *******************/
+import { showData } from './data.js';
+import { filterBySearch} from './data.js';
 import dataGhibli from './data/ghibli/ghibli.js';
 
-/**************** Declaration of Variables *******************/
+/* ---------Variables------ */
+const secctionMovies = document.getElementById('movies');
+const arrayGhibli = dataGhibli.films;
+const x = showData(arrayGhibli);
 
-/************* Get data of Ghibli´s films ****************/
-const dataFilms = dataGhibli.films;
+/* ---------Filters--------- */
+const searchInput = document.querySelector('#search .search__containt .input')
+const btnOrderAtoZ = document.getElementById('#order-az');
 
-/************* Template for show film data ****************/
-const filmsCards = document.getElementById("films-cards");
+//load dates
+    function loadData (films) {
+        //films: [{film1}, {film2}, ..]
+        secctionMovies.innerHTML="";
+        films.forEach(item => {
+            secctionMovies.appendChild(preview(item));
+        });
+    }
+    const preview =((movie) =>
+        {
+            const movieContainer = document.createElement('div');
+            movieContainer.classList.add('containt-movie')
+            const h2 = document.createElement('h2')
+            h2.textContent = movie.title;
+            const img = document.createElement('img');
+            img.setAttribute('src', movie.poster);
+            secctionMovies.appendChild(movieContainer);
+            movieContainer.appendChild(img);
+            movieContainer.appendChild(h2);
+            return movieContainer;
+        })
+    addEventListener('load', () => loadData(x));
+//1. Filtro para la barra de búsqueda
+searchInput.addEventListener('keyup', ()=>{
+    //Almacenar valor de búsqueda del user
+    let searchValue = searchInput.value;
+    //Mostrar todas las películas cuando el user no escriba nada en la barra de búsqueda, de lo contrario hacer el filtrado por título del filme
+    if (searchValue.length != 0) {
+       let filteredSearch = filterBySearch(x, searchValue);
+       (filteredSearch.length != 0) ? loadData(filteredSearch) : secctionMovies.innerHTML = '';
+    } else {
+       return loadData(x)
+    }
+});
+//console.log(arrayGhibli);
 
-/************* Show film data with a template ****************/
-//1. Muestra info de cada película con esta plantilla:
-const showData = (film)=> {
-    //1.1. Crear una contenedor para la plantilla
-    const filmInfo = document.createElement('div');
-    filmInfo.className = "card-container";
-
-    //1.2. Plantilla de cada tarjeta, solo cambiarán sus datos como título, año,..
-    const templateCard = 
-    `<div class= "film-card container" id= ${film.id}>
-        <div class= "film-poster">
-            <img src= ${film.poster}/>
-            <div class= "film-rate bg-white">⭐ <span>${film.rt_score}</span></div>
-        </div>
-        <div class= "film-title-container">
-            <h2 class= "fs-800 margin-bottom">${film.title}</h2>
-            <p>${film.release_date}</p>
-        </div>
-    </div>`
-    
-    filmInfo.innerHTML= templateCard;
-    return filmInfo;
-    //return templateCard;
-}
-
-//2. Al cargar toda la página, mostrar la data en el div films-cards
-function loadData (films) {
-    //films: [{film1}, {film2}, ..]
-    films.forEach(objectInside => {
-        filmsCards.appendChild(showData(objectInside));
-    });
-}
-
-window.addEventListener('load', () => loadData(dataFilms));
