@@ -15,20 +15,21 @@ export const showData = (arrays) => {
 //    const filteredData = dataFilms.filter(film => film.title.toLowerCase().includes(transformData));
 //    return filteredData;
 //  }
-export const filterBySearch = (words , query)=>{
-   return words.filter((word) =>
-       word.title.toLowerCase()
-       .includes(query.toLowerCase())
-      );
- };
- export const filterBySearchGeneral = (words , query, prop)=>{
+
+export const filterBySearchGeneral = (words, query, prop)=>{
   return words.filter((word) =>
-      word.prop.toLowerCase()
+      word[prop].toLowerCase()
       .includes(query.toLowerCase())
      );
 };
 
+export const orderAtoZ = (arrayToSort, prop)=>{
+  return arrayToSort.sort((a, b) => a[prop].toLowerCase().localeCompare(b[prop].toLowerCase()));
+}
 
+export const orderZtoA = (arrayToSort, prop)=>{
+  return arrayToSort.sort((a, b) => a[prop].toLowerCase().localeCompare(b[prop].toLowerCase())).reverse();
+}
 
 
 
