@@ -9,33 +9,71 @@
     display: flex;
     align-items: center;
     background-color: black;
-    justify-content: space-around;
+    justify-content: space-between;
+  
 }
-.header > img{
-    height: 60px;
-    margin-left: 30px;
-}
-.search{
-    height: 60px;
+
+.menu{
+   
     display: flex;
-    align-items: center;
-    margin-left: 30px;
+    margin-right: 31px;
+}
+.header .header-title{
+    color: white;
+    font-size: 48px;
+    letter-spacing: 10px;
+    margin-left: 31px;
+
+}
+.header .container{
+    width: 500px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+  
+
+   
+
+}
+.search__containt{
     position: relative;
+
+
+}
+.search__containt .fa-solid{
+
+    position: absolute;
+    left: 250px;
+    top: 20px;
+    height: 40px;
+    object-fit: fill;
+    color: black;
 }
 .search__containt .input{
     height: 40px;
+    width: 300px;
     border-radius: 15px;
     padding: 5px 10px;
 }
-.fa-solid{
-    position: absolute;
-    left: 150px;
-    top: 28px;
-    height: 40px;
-    object-fit: fill;
-}
+
 .title{
     text-align: center;
+}
+
+.container > input{
+    height: 40px;
+    border: none;
+    width: 150px;
+    margin-left: 15px;
+    font-size: 18px;
+    background-color: transparent;
+    color: white;
+    
+}
+
+input[type="text" i] {
+    padding: 1px 2px;
+    font-size: 18px;
 }
 .movies{
     display: grid;
