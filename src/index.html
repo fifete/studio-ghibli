@@ -3,22 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
+    <script src="https://kit.fontawesome.com/eb63adde26.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="root">
       <div id="root"></div>
       <header class="header">
-        <img src="#" alt="">
-        <section class="search" id="search">
+        <div class="x"> 
+          <h2 class="header-title">STUDIO GHIBLI</h2>
+        </div>
+        <!--input xa ordenar alfabéticamente-->
+        <div class="menu">
+          <div class="container">
+            <input type="button" value="Order A to Z" id="order-az">
+            <input type="button" value="Order Z to A" id="order-za">
+          </div>
+      
           <div class="search__containt">
             <input class="input" type="text" placeholder="Name of movie">
-              <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-          </div>
-          <!--input xa ordenar alfabéticamente-->
-          <input type="button" value="order a to z" id="order-az">
-          <input type="button" value="order z to a" id="order-za">
-        </section>
+            <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+         </div>
+        </div>
+      
+      
+        
       </header>
       <main>
         <div class="title">
@@ -44,6 +53,7 @@
             <option value="Yoshiaki Nishimura">Yoshiaki Nishimura</option>
           </select>
         </div>
+        <!--sección donde se cargan las peliculas-->
         <section class="movies" id="movies">
         </section>
       </main>

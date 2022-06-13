@@ -10,7 +10,7 @@ const arrayGhibli = dataGhibli.films;
 const someFilmProps = showData(arrayGhibli);
 
 /* ---------Filters--------- */
-const searchInput = document.querySelector('#search .search__containt .input')
+const searchInput = document.querySelector('.search__containt .input')
 const btnOrderAtoZ = document.getElementById('order-az');
 const btnOrderZtoA = document.getElementById('order-za');
 
