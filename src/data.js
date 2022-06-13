@@ -4,7 +4,9 @@ export const showData = (arrays) => {
  const datos = arrays.map(item =>{
     return{
       title: item.title,
-      poster: item.poster
+      poster: item.poster,
+      producer: item.producer,
+      director: item.director
     }
   });
   return datos;
@@ -17,10 +19,14 @@ export const showData = (arrays) => {
 //  }
 
 export const filterBySearchGeneral = (words, query, prop)=>{
-  return words.filter((word) =>
-      word[prop].toLowerCase()
-      .includes(query.toLowerCase())
-     );
+  if(prop === 'title'){
+    return words.filter((film) =>
+        film[prop].toLowerCase()
+        .includes(query.toLowerCase())
+       );
+  } else {
+    return words.filter((film)=> film[prop] === query);
+  }
 };
 
 export const orderAtoZ = (arrayToSort, prop)=>{

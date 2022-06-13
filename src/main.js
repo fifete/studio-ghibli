@@ -4,6 +4,8 @@ import dataGhibli from './data/ghibli/ghibli.js';
 
 /* ---------Variables------ */
 const secctionMovies = document.getElementById('movies');
+const selectProducer = document.getElementById('producers');
+const selectDirector = document.getElementById('directors');
 const arrayGhibli = dataGhibli.films;
 const someFilmProps = showData(arrayGhibli);
 
@@ -61,8 +63,30 @@ btnOrderAtoZ.addEventListener('click', function() {
 btnOrderZtoA.addEventListener('click', function() {
     //la sig. función modifica el array [{film1}, {fiml2}, ...] a un array ordenado, ascendentemente, por el título del filme
     orderZtoA(someFilmProps, 'title');
-
-    //Mostrar el array ordenado en la pantalla
     loadData(someFilmProps);
   })
+
+//3. Ordenar por productores y directores
+selectProducer.addEventListener('change', ()=> {
+    //Almacenar el valor seleccionado por el user
+    let producer = selectProducer.value;
+    //Filtrar las películas realizadas por el productor seleccionado
+    if(producer === 'producers'){
+        loadData(someFilmProps);
+    } else {
+        let filmByProducer = filterBySearchGeneral(someFilmProps, producer, 'producer')
+        loadData(filmByProducer);
+    }
+})
+
+selectDirector.addEventListener('change', ()=> {
+    let director = selectDirector.value;
+    if(director === 'director'){
+        loadData(someFilmProps);
+    } else {
+        let filmByDirector = filterBySearchGeneral(someFilmProps, director, 'director')
+        loadData(filmByDirector);
+    }
+} )
+
 
