@@ -5,59 +5,161 @@
     <title>Data Lovers</title>
     <script src="https://kit.fontawesome.com/eb63adde26.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
+    <!--Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet"> 
+
   </head>
   <body>
-    <div id="root">
-      <div id="root"></div>
-      <header class="header">
-        <div class="x"> 
-          <h2 class="header-title">STUDIO GHIBLI</h2>
+      <header class="header flex">
+        <div>
+          <img src="../images/studio-ghibli-logo.png" alt="studio-ghibli-logo" class="logo">
         </div>
-        <!--input xa ordenar alfabéticamente-->
-        <div class="menu">
-          <div class="container">
-            <input type="button" value="Order A to Z" id="order-az">
-            <input type="button" value="Order Z to A" id="order-za">
-          </div>
-      
-          <div class="search__containt">
-            <input class="input" type="text" placeholder="Name of movie">
-            <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-         </div>
-        </div>
-      
-      
         
-      </header>
-      <main>
-        <div class="title">
-          <h2>
-            OUR FILMS
-          </h2>
-          <select name="directors" id="directors">
-            <option value="directors" selected="selected">By directors</option>
-            <option value="Hayao Miyazaki">Hayao Miyazaki</option>
-            <option value="Isao Takahata">Isao Takahata</option>
-            <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
-            <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
-            <option value="Gorō Miyazaki">Gorō Miyazaki</option>
-            <option value="Hiroyuki Morita">Hiroyuki Morita</option>
-          </select>
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span aria-expanded="false"></span></button>
 
-          <select name="producer" id="producers">
-            <option value="producers" selected="selected">By producers</option>
-            <option value="Hayao Miyazaki">Hayao Miyazaki</option>
-            <option value="Isao Takahata">Isao Takahata</option>
-            <option value="Toru Hara">Toru Hara</option>
-            <option value="Toshio Suzuki">Toshio Suzuki</option>
-            <option value="Yoshiaki Nishimura">Yoshiaki Nishimura</option>
-          </select>
-        </div>
-        <!--sección donde se cargan las peliculas-->
-        <section class="movies" id="movies">
-        </section>
+        <nav>
+          <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+            <li><a href="#about-us">About us</a></li>
+            <li><a href="#our-films">Our Films</a></li>
+            <li><a href="#">Statistics</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <main class="main">
+        <!--Primera página-->
+        <article class="main__films-page1 padd-section flow" id="film-Page1">
+          <section class="main__history-page1 container flow" id="about-us">
+            <h2 class="ff-sans-accent text-center">About us</h2>
+  
+            <div class="history-text flow">
+              <p>We are a Japanese animation studio, considered by specialized critics and many moviegoers as one of the best animation studios in the world today. Six of our films are among the top 10 grossing anime films made in Japan, four have won the Japan Academy Award for Animation of the Year, five have received Oscar nominations, and many others of our work have won the Animage Anime Award Grand Prix</p>
+              <p>The studio was founded on June 15, 1985 by directors Hayao Miyazaki and Isao Takahata and producer Toshio Suzuki y and is directed by award-winning director Hayao Miyazaki, and until 2018 was directed by Miyazaki alongside his friend and mentor, Isao Takahata, who passed away that year.</p>
+            </div>
+  
+            <figure class="founders-img flow">
+              <img src="../images/founders.jpg" alt="studio ghibli founders">
+              <figcaption class="text-center">Founders of Studio Ghibli</figcaption>
+            </figure>
+          </section>
+
+          <section class="container flow" id="our-films">
+            <h2 class="ff-sans-accent text-center">Our Films</h2>
+            <div class="filters flex">
+              <div class="filters__search-container">
+                <i class="material-icons">search</i>
+                <input class="input" type="text" placeholder="Name of movie">
+              </div>
+              
+              <select name="directors" id="directors">
+                <option value="directors" selected="selected">By directors</option>
+                <option value="Hayao Miyazaki">Hayao Miyazaki</option>
+                <option value="Isao Takahata">Isao Takahata</option>
+                <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+                <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+                <option value="Gorō Miyazaki">Gorō Miyazaki</option>
+                <option value="Hiroyuki Morita">Hiroyuki Morita</option>
+              </select>
+
+              <select name="producer" id="producers">
+                <option value="producers" selected="selected">By producers</option>
+                <option value="Hayao Miyazaki">Hayao Miyazaki</option>
+                <option value="Isao Takahata">Isao Takahata</option>
+                <option value="Toru Hara">Toru Hara</option>
+                <option value="Toshio Suzuki">Toshio Suzuki</option>
+                <option value="Yoshiaki Nishimura">Yoshiaki Nishimura</option>
+              </select>
+
+              <div class="rate-date-btn flex">
+                <button id="most-recent" class="button">Most recent</button>
+                <button id="most-rated" class="button">Most rated</button>
+              </div>
+
+              <!--input xa ordenar alfabéticamente-->
+              <div class="alphabet-order-btn flex">
+                <i class="fa fa-sort-alpha-asc fa-2x" id="order-az" aria-hidden="true"></i>
+                <i class="fa fa-sort-alpha-desc fa-2x" id="order-za" aria-hidden="true"></i>
+              </div>
+            </div>
+          </section>
+          <!--sección donde se cargan las peliculas-->
+          <section class="movies" id="movies"></section>
+
+        </article>
+
+        <!--Página propia de cada película-->
+        <article id="film-Page2" class="film-Page2 container flow">
+          <div class="arrow-back">
+            <i class="material-icons" id="arrow-back"> arrow_back </i>
+          </div>
+
+          <section class="article__description flow">
+            <div class="filmPoster">
+              <img id="posterPag2" alt="film´s poster">
+            </div>
+
+            <div class="description flow">
+              <div class="description__row-1 flex">
+                <div class="description__title-container flex">
+                  <h1 id="titlePag2" class="ff-sans-accent"></h1>
+                  <h3 id="datePag2" class="ff-sans-accent"></h3>
+                </div>
+  
+                <div>
+                  <h4 id="scorePag2" class="ff-sans-accent"></h4>
+                </div>
+              </div>
+
+              <p id="synopsis"></p>
+
+              <div class="description__row-3 flow">
+                <p><strong>Director:</strong> <span id="directorPag2"></span></p>
+                <p><strong>Producer:</strong> <span id="producerPag2"></span></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="extra-data-film">
+            <div class="aside flow">
+              <div class="locations flow">
+                <h2 class="ff-sans-accent">Locations</h2>
+
+                <div id="locations-container" class="locations-container flow">
+                  <!--tarjetas-->
+                </div>
+              </div>
+
+              <div class="vehicles flow">
+                <h2 class="ff-sans-accent">Vehicles</h2>
+
+                <div id="vehicles-container" class="vehicles-container flow">
+                  <!--Tarjetas-->
+                </div>
+              </div>
+            </div>
+
+            <div class="characters flow">
+              <h2 class="ff-sans-accent">Characters</h2>
+
+              <div id="characters-container" class="characters-container">
+                <!--Tarjetas-->
+              </div>
+            </div>
+
+          </section>
+        </article>
       </main>
-    </div>
+      <footer>
+        <p class="text-white text-center">
+          This page was made for educational purposes <br>
+          <strong> Copyright © 2022 </strong> 
+        </p>
+      </footer>
     <script src="main.js" type="module"></script>
     <script src="data.js" type="module"></script>
   </body>

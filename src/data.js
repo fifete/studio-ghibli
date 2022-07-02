@@ -1,16 +1,31 @@
-// estas funciones son de ejemplo
-const jarrays = [{id: "2baf70d1-42bb-4437-b551-e5fed5a87abe",title: "Castle in the Sky", poster:"hola"},{id: "2baf70d1-42bb-4437-b551-e5fed5a87abe", title: "Castle", poster:"hola"}]
 export const showData = (arrays) => {
  const datos = arrays.map(item =>{
     return{
+      id: item.id,
       title: item.title,
       poster: item.poster,
       producer: item.producer,
-      director: item.director
+      director: item.director,
+      score: item.rt_score,
+      date: item.release_date,
+      synopsis: item.description
     }
   });
   return datos;
 };
+
+export const showExtraData = (arrays) => {
+ const datos = arrays.map(item =>{
+    return{
+      id: item.id,
+      vehicles: item.vehicles,
+      locations: item.locations,
+      people: item.people
+    }
+  });
+  return datos;
+};
+
 // export const filterBySearch = (search, dataFilms) => {
 //    //transformar a minúscula tanto la búsqueda del usuario como el título del filme para lograr coincidencia
 //     const transformData = search.toLowerCase();
@@ -18,6 +33,7 @@ export const showData = (arrays) => {
 //    return filteredData;
 //  }
 
+//Funciones para filtrar y ordenar películas 1ra pestaña
 export const filterBySearchGeneral = (words, query, prop)=>{
   if(prop === 'title'){
     return words.filter((film) =>
@@ -29,14 +45,17 @@ export const filterBySearchGeneral = (words, query, prop)=>{
   }
 };
 
-export const orderAtoZ = (arrayToSort, prop)=>{
+export const OrderAtoZ = (arrayToSort, prop)=>{
   return arrayToSort.sort((a, b) => a[prop].toLowerCase().localeCompare(b[prop].toLowerCase()));
 }
 
-export const orderZtoA = (arrayToSort, prop)=>{
+export const OrderZtoA = (arrayToSort, prop)=>{
   return arrayToSort.sort((a, b) => a[prop].toLowerCase().localeCompare(b[prop].toLowerCase())).reverse();
 }
 
+export const descendingOrder = (arrayToSort, prop)=> {
+  return arrayToSort.sort((a, b)=> a[prop] - b[prop]).reverse();
+}
 
 
 
